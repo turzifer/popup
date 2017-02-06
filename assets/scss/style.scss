@@ -1,0 +1,63 @@
+/* sunuma özel değişkenler */
+$screen_width: 100%;
+$popup_width:	80%;
+
+$popup_height: auto;
+$dist_top: 5vw;
+
+$overlay_bg_color:  rgba(200,200,200,0.9);
+$popup_bg_color:    rgba(200,200,200,0.9);
+
+$button_image_url: "http://turzifer.com/wp-content/uploads/2015/12/nav-icons.png";
+
+.tPopup,
+.tPopup * { box-sizing: border-box; }
+
+.tPopupOverlay {
+  z-index: 1;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: $overlay_bg_color;
+}
+
+.tPopup {
+	// z-index: 100;
+	// position: relative;
+}
+
+.tPopupContent {
+  z-index: 10;
+  position: fixed;
+  left:       ($screen_width - $popup_width) / 2;
+  top:        $dist_top;
+  width:      $popup_width;
+  height:     $popup_height;
+
+  background: $popup_bg_color;
+  padding: 1em;
+  box-shadow: -8px 8px 16px 0px rgba(0,0,0,0.5);
+
+  transform: translate3d(-450px,0,0);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.5s;
+
+  .tOpen>& {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  video, img { max-width: 100%; }
+}
+
+.tBtClosePopup {
+  display: block;
+  position: absolute;
+  top: 0.5em; right: 0.5em;
+  width: 50px;
+  height: 50px;
+  background: red url($button_image_url) no-repeat;
+  background-position: -150px 0;
+  border-radius: 50%;
+}
