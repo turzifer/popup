@@ -8,61 +8,54 @@
 </head>
 <body>
 
+<h1>Popup</h1>
+<h2>Usage</h2>
+<ul>
+	<li>Do not position the wrapper element (<code>.tPopup</code>) or the content (<code>.tPopupContent</code>). Use absolute positioning only on the <i>button</i> (items with the class <code>tBtOpenPopup</code>)</li>
+	<li>link to the css and the js</li>
+	<li>
+		<h3>HTML</h3>
+		<pre>
+&lt;div class="tPopup" data-type="modal"&gt;
+  &lt;a class="tBtOpenPopup" href="#"&gt;Modal&lt;/a&gt;
+  &lt;div class="tPopupContent"&gt;
+    &lt;!-- content comes here --&gt;
+  &lt;/div&gt;&lt;!-- .tPopupContent --&gt;
+&lt;/div&gt;&lt;!-- .tPopup --&gt;
+		</pre>
+	</li>
+</ul>
 
-<!-- start: popup -->
-<div class="tPopup">
-<a class="tBtOpenPopup" href="#">open popup</a>
+<hr>
+
+<div class="tPopup" data-type="modal">
+<a class="tBtOpenPopup" href="#">Modal</a>
 <div class="tPopupContent">
-	<h1>This is the popup content</h1>
-	<video controls src="bobrek-fonksiyonlari.mp4"></video>
-	
-	<!-- start: popup -->
-	<div class="tPopup">
-	<a class="tBtOpenPopup" href="#">open popup</a>
-	<div class="tPopupContent">
-		<h1>This is the popup content</h1>
-		<video controls src="bobrek-fonksiyonlari.mp4"></video>
-		
-		<!-- start: popup -->
-		<div class="tPopup">
-		<a class="tBtOpenPopup" href="#">open popup</a>
-		<div class="tPopupContent">
-			<h1>This is the popup content</h1>
-			<video controls src="bobrek-fonksiyonlari.mp4"></video>
-			
-			<!-- start: popup -->
-			<div class="tPopup">
-			<a class="tBtOpenPopup" href="#">open popup</a>
-			<div class="tPopupContent">
-				<h1>This is the popup content</h1>
-				<video controls src="bobrek-fonksiyonlari.mp4"></video>
-			</div>
-			</div>
-			<!-- end: popup -->
+	<h1>This is the modal popup</h1>
+	<h2>Lorem Ipsum Nedir?</h2>
+	<p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>
+	<h2>Neden Kullanırız?</h2>
+	<p>Yinelenen bir sayfa içeriğinin okuyucunun dikkatini dağıttığı bilinen bir gerçektir. Lorem Ipsum kullanmanın amacı, sürekli 'buraya metin gelecek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır. Şu anda birçok masaüstü yayıncılık paketi ve web sayfa düzenleyicisi, varsayılan mıgır metinler olarak Lorem Ipsum kullanmaktadır. Ayrıca arama motorlarında 'lorem ipsum' anahtar sözcükleri ile arama yapıldığında henüz tasarım aşamasında olan çok sayıda site listelenir. Yıllar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri geliştirilmiştir.</p>
+</div><!-- .tPopupContent -->
+</div><!-- .tPopup -->
 
-		</div>
-		</div>
-		<!-- end: popup -->
 
-	</div>
-	</div>
-	<!-- end: popup -->
-
-</div>
-</div>
-<!-- end: popup -->
-
-<p></p>
-
-<!-- start: popup -->
-<div class="tPopup">
-<a class="tBtOpenPopup" href="#">open popup</a>
+<div class="tPopup" data-type="bottom">
+<a class="tBtOpenPopup" href="#">Bottom</a>
 <div class="tPopupContent">
-	<h1>This is the popup content</h1>
-	<video controls src="bobrek-fonksiyonlari.mp4"></video>
-</div>
-</div>
-<!-- end: popup -->
+	<h2>Lorem Ipsum Nedir?</h2>
+	<p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır.</p>
+</div><!-- .tPopupContent -->
+</div><!-- .tPopup -->
+
+
+<div class="tPopup" data-type="inplace">
+<a class="tBtOpenPopup" href="#">in-place</a>
+<div class="tPopupContent">
+	<h2>This is an inplace explanation</h2>
+	<p>To make this happen, you use <code>data-type="inplace"</code> on the wrapper item (<code>.tPopup</code>)</p>
+</div><!-- .tPopupContent -->
+</div><!-- .tPopup -->
 
 
 <script src="assets/js/tPopup.js?v=1"></script>

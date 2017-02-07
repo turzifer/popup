@@ -1,14 +1,18 @@
-//* global console */
+/* global console */
 
 (function(){
+  var openClass = "tOpen";
+  var closeButtonClass = "tBtClosePopup";
+  var overlayClass = "tPopupOverlay";
+  var zIndex = 100;
+  var gap = 16;
+
   function handlePopup(e) {
-    var openClass = "tOpen";
-    var closeButtonClass = "tBtClosePopup";
-    var overlayClass = "tPopupOverlay";
-    var popups = document.querySelectorAll('.tPopup');
-    var container = this.parentElement;
-    var btClosePopup = container.getElementsByClassName(closeButtonClass);
-    var content = container.getElementsByClassName('tPopupContent')[0];
+    var popup = {};
+    popup.container = this.parentElement;
+    popup.type = popup.container.dataset.type;
+    popup.closeButton = popup.container.getElementsByClassName(closeButtonClass);
+    popup.content = popup.container.getElementsByClassName('tPopupContent')[0];
 
     function stopVideos(){
       var videos = document.getElementsByTagName('VIDEO');
@@ -23,47 +27,94 @@
       stopVideos();
 
       // remove visibility classList
-      container.classList.remove(openClass);
+      popup.container.classList.remove(openClass);
 
-      // adjust z-index
-      container.style.zIndex = "100";
-
-      var overlay = container.getElementsByClassName(overlayClass)[0];
-      overlay.parentNode.removeChild(overlay);
-
+      // if it is a modal popup
+      if(popup.type === "modal") {
+        // remove overlay
+        popup.overlay = popup.container.getElementsByClassName(overlayClass)[0];
+        popup.overlay.parentNode.removeChild(popup.overlay);
+      }
       e.preventDefault();
     }//closePopup(e)
 
+    function placePopupInplace(e){
+
+      var screenWidth = window.innerWidth;
+
+      popup.trigger = {};
+      popup.trigger.left = e.target.offsetLeft;
+      popup.trigger.top = e.target.offsetTop;
+
+      // default positioning
+      var newPosition = {};
+      newPosition.left = popup.trigger.left;
+      newPosition.top = popup.trigger.top - (popup.content.offsetHeight + gap);
+
+      // hadle overflow from top
+      if(newPosition.top < 10) {
+        newPosition.top = popup.trigger.top + gap;
+      }
+
+      // hadle overflow from right
+      if( (newPosition.left + gap + popup.content.offsetWidth) > (screenWidth - 10) ) {
+        newPosition.left = screenWidth - ( gap + popup.content.offsetWidth );
+      }     
+
+      popup.content.style.top = newPosition.top + 'px';
+      popup.content.style.left = newPosition.left + 'px';
+      
+      console.group(e.target);
+      console.log('trigger.left: ' + popup.trigger.left);
+      console.log('trigger.top: ' + popup.trigger.top);
+      console.log('content.offsetHeight: ' + popup.content.offsetHeight);
+      console.log('popup.content.offsetWidth: ' + popup.content.offsetWidth);
+      console.log('screenWidth: ' + screenWidth);
+      console.log(popup.content);
+      console.groupEnd(e.target);
+    }
+
     function openPopup(e) {   
-      // overlay
-      var overlay = document.createElement("div");
-      overlay.classList.add(overlayClass);
-      container.appendChild(overlay);
+
+      // handle different popup types differently
+      switch (popup.type) {
+        case 'modal':
+          // put an overlay
+          popup.overlay = document.createElement("div");
+          popup.overlay.classList.add(overlayClass);
+          zIndex++;
+          popup.overlay.style.zIndex = zIndex;
+          popup.container.appendChild(popup.overlay);
+          break;
+        case 'inplace':
+          placePopupInplace(e);
+          break;
+        // case 'bottom':
+        //   break;
+      }
 
       // adjust z-index
-      popups.forEach(function(popup){
-        popup.style.zIndex = "100";
-      });
-      container.style.zIndex = "1000";
+      zIndex++;
+      popup.content.style.zIndex = zIndex;
 
       // stop videos
-      stopVideos();
-
+      stopVideos();      
+      
       //open popup
-      container.classList.add(openClass);
+      popup.container.classList.add(openClass);
       e.preventDefault();
     }
 
-    if(!btClosePopup.length) {
-        btClosePopup = document.createElement("a");
-        btClosePopup.classList.add(closeButtonClass);
-        btClosePopup.setAttribute("href", "#");
-        btClosePopup.addEventListener('click', closePopup);
-        content.appendChild(btClosePopup);
+    if(!popup.closeButton.length) {
+        popup.closeButton = document.createElement("a");
+        popup.closeButton.classList.add(closeButtonClass);
+        popup.closeButton.setAttribute("href", "#");
+        popup.closeButton.addEventListener('click', closePopup);
+        popup.content.appendChild(popup.closeButton);
     }
 
     // close if open, open if closed
-    if(container.classList.contains(openClass)){
+    if(popup.container.classList.contains(openClass)){
         closePopup(e);
     } else {
         openPopup(e);
@@ -71,8 +122,9 @@
     e.preventDefault();
   }
 
-  var btPopups = document.querySelectorAll('.tBtOpenPopup');
-  btPopups.forEach(function(button) {
+
+  //open popup event listener
+  document.querySelectorAll('.tBtOpenPopup').forEach(function(button) {
       button.addEventListener('click', handlePopup);
   });
 
