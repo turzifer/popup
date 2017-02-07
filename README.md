@@ -1,5 +1,5 @@
 # Popup
-A flexsible and easy to use js+css popup. At the moment it has three modes:
+A flexible and easy to use js+css popup. At the moment it has three modes:
 
 * **modal**: the popup comes with an overlay to block the other content. It is centered to the screen. The width, height and distance form top can be adjusted in the css (or scss) file.
 * **in-place**: the popup will appear in the place the mouse is clicked (or touched). The popup will adjust itself to stay in the screen. Useful for in-place explanations, added details.
@@ -8,7 +8,7 @@ A flexsible and easy to use js+css popup. At the moment it has three modes:
 ## Usage
 * Link to the css and the js files.
 * Copy and paste the html
-* Do not position the wrapper element (`.tPopup`) or the content (`.tPopupContent`). Use absolute positioning only on the *button* (items with the class `tBtOpenPopup`)
+* **Do not** position the wrapper element (`.tPopup`) or the content (`.tPopupContent`). Use absolute positioning only on the *button* (items with the class `tBtOpenPopup`)
 
 ### Modal
 ```html
