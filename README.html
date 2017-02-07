@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="popup">Popup</h1>
+
+<p>A flexsible and easy to use js+css popup. At the moment it has three modes:</p>
+
+<ul>
+<li><strong>modal</strong>: the popup comes with an overlay to block the other content. It is centered to the screen. The width, height and distance form top can be adjusted in the css (or scss) file.</li>
+<li><strong>in-place</strong>: the popup will appear in the place the mouse is clicked (or touched). The popup will adjust itself to stay in the screen. Useful for in-place explanations, added details.</li>
+<li><strong>bottom</strong>: the popup will appear in the bottom of the screen. The distance from the left side of the screen can be adjusted in the css (or scss) file.</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+<li>Link to the css and the js files.</li>
+<li>Copy and paste the html</li>
+<li>Do not position the wrapper element (<code>.tPopup</code>) or the content (<code>.tPopupContent</code>). Use absolute positioning only on the <em>button</em> (items with the class <code>tBtOpenPopup</code>)</li>
+</ul>
+
+<h3 id="modal">Modal</h3>
+
+<pre><code class="html">&lt;div class=&quot;tPopup&quot; data-type=&quot;modal&quot;&gt;
+&lt;a class=&quot;tBtOpenPopup&quot; href=&quot;#&quot;&gt;Modal&lt;/a&gt;
+&lt;div class=&quot;tPopupContent&quot;&gt;
+    &lt;h1&gt;This is the modal popup&lt;/h1&gt;
+    &lt;p&gt;To use it, apply &lt;code&gt;data-type=&quot;modal&quot;&lt;/code&gt; on the wrapper item (&lt;code&gt;.tPopup&lt;/code&gt;)&lt;/p&gt;
+&lt;/div&gt;&lt;!-- .tPopupContent --&gt;
+&lt;/div&gt;&lt;!-- .tPopup --&gt;
+</code></pre>
+
+<h3 id="in-place">In-place</h3>
+
+<pre><code class="html">&lt;div class=&quot;tPopup&quot; data-type=&quot;inplace&quot;&gt;
+&lt;a class=&quot;tBtOpenPopup&quot; href=&quot;#&quot;&gt;in-place&lt;/a&gt;
+&lt;div class=&quot;tPopupContent&quot;&gt;
+    &lt;h2&gt;This is an inplace popup&lt;/h2&gt;
+    &lt;p&gt;To use it, apply &lt;code&gt;data-type=&quot;inplace&quot;&lt;/code&gt; on the wrapper item (&lt;code&gt;.tPopup&lt;/code&gt;)&lt;/p&gt;
+&lt;/div&gt;&lt;!-- .tPopupContent --&gt;
+&lt;/div&gt;&lt;!-- .tPopup --&gt;
+</code></pre>
+
+<h3 id="bottom">Bottom</h3>
+
+<pre><code class="html">&lt;div class=&quot;tPopup&quot; data-type=&quot;bottom&quot;&gt;
+&lt;a class=&quot;tBtOpenPopup&quot; href=&quot;#&quot;&gt;Bottom&lt;/a&gt;
+&lt;div class=&quot;tPopupContent&quot;&gt;
+    &lt;h2&gt;This is the bottom popup&lt;/h2&gt;
+    &lt;p&gt;To use it, apply &lt;code&gt;data-type=&quot;bottom&quot;&lt;/code&gt; on the wrapper item (&lt;code&gt;.tPopup&lt;/code&gt;)&lt;/p&gt;
+&lt;/div&gt;&lt;!-- .tPopupContent --&gt;
+&lt;/div&gt;&lt;!-- .tPopup --&gt;
+</code></pre>
+
+</body>
+</html>
