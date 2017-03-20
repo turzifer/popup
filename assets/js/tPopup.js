@@ -124,8 +124,13 @@
 
 
   //open popup event listener
-  document.querySelectorAll('.tBtOpenPopup').forEach(function(button) {
-      button.addEventListener('click', handlePopup);
+  // document.querySelectorAll('.tBtOpenPopup').forEach(function(button) {
+  //     button.addEventListener('click', handlePopup);
+  // });
+  document.addEventListener("DOMContentLoaded", function(/*event*/) { 
+    var buttons = document.querySelectorAll('.tBtOpenPopup');
+      for (var i = 0; i < buttons.length; ++i) {
+        buttons[i].addEventListener('click', handlePopup);
+      }
   });
-
 })();
