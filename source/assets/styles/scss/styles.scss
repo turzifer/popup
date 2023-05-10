@@ -1,0 +1,20 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.trz-wrapper {
+    position: relative;
+    background-color: #eee;
+    height: 100vh;
+    padding: 1rem;
+}
+
+
+@import "trz-popup";
+
+
+.trz-content {
+    min-height: 300px;
+}
