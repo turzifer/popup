@@ -15,6 +15,32 @@
 		<h1>trz-popup</h1>
 		<hr>
 
+<div style="padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; margin-bottom: 20px;">
+  <h3>Enhanced Features & Accessibility!</h3>
+  <p>
+    <strong>Configuration:</strong> You can now customize default CSS class names and control automatic button injection.
+    Place your configuration script before <code>trz-popup.js</code>:
+  </p>
+  <pre><code style="display: block; padding: 10px; background: #333; color: #fff; border-radius: 5px;">
+&lt;script&gt;
+  // Example: Configure before trz-popup.js loads
+  window.trzPopup = window.trzPopup || {};
+  window.trzPopup.configure({
+    // toggled: 'my-custom-toggled-class', // Example: override a class name
+    // autoInjectCloseButton: false,      // Example: disable auto close button
+  });
+&lt;/script&gt;
+&lt;script src="assets/scripts/trz-popup.js?v=1"&gt;&lt;/script&gt;
+  </code></pre>
+  <p>
+    <strong>Accessibility:</strong> This version includes significant accessibility improvements:
+  </p>
+  <ul>
+    <li><strong>Keyboard Navigation:</strong> Use 'Escape' key to close popups. Focus is managed and trapped within open popups.</li>
+    <li><strong>ARIA Attributes:</strong> Popups now use ARIA attributes (<code>role="dialog"</code>, <code>aria-modal</code>, <code>aria-labelledby</code>, <code>aria-hidden</code>) to improve screen reader compatibility.</li>
+  </ul>
+  <p><em>Note: The actual configuration example above is not actively changing this demo page's behavior but shows how you would implement it in your project.</em></p>
+</div>
 		
 		<!-- *** basic popup *** -->
 		<div class="trz-bt-open-popup" data-target="popup_1">basic popup</div>
